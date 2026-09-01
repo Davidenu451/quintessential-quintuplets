@@ -8,13 +8,14 @@
     <script defer src="script.js"></script>
   </head>
   <body class="page-home theme-noir">
-    <audio id="bg-music" autoplay loop preload="auto" volume="0.35">
+    <div class="scroll-progress" id="scroll-progress"></div>
+    <audio id="bg-music" autoplay loop preload="auto">
       <source src="The%20Quintessential%20Quintuplets%20Opening%20_%20Gotoubun%20no%20Kimochi.mp3" type="audio/mpeg" />
     </audio>
     <button id="audio-toggle" class="audio-toggle is-on" type="button" aria-label="Metti in pausa la musica">♫</button>
 
     <div id="intro-scene" class="intro-scene" aria-live="polite">
-      <video id="intro-video" class="intro-video" autoplay muted playsinline preload="auto">
+      <video id="intro-video" class="intro-video" autoplay muted playsinline preload="auto" disablePictureInPicture>
         <source src="assets/sora-intro.mp4" type="video/mp4" />
       </video>
     </div>
@@ -46,6 +47,7 @@
       </div>
       <section class="hero" id="home">
         <div class="hero-card" data-animate>
+          <img src="The Quintessential Quintuplets.png" alt="The Quintessential Quintuplets - Tutte le sorelle" class="hero-image" />
           <div class="cover-bg"></div>
           <div class="hero-overlay"></div>
           <div class="hero-content">
@@ -59,6 +61,27 @@
               <a href="storia.html" class="cta primary">Scopri la storia</a>
               <a href="miku.html" class="cta secondary">Le sorelle</a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section miku-feature" id="spotlight" data-animate>
+        <div class="spotlight-layout">
+          <div class="spotlight-copy">
+            <span class="eyebrow accent">Focus della settimana</span>
+            <h2>Miku Nakano</h2>
+            <p>
+              La sua calma, la sua sensibilità e il modo in cui osserva tutto con attenzione la rendono una delle sorelle più affascinanti del gruppo: introspettiva, elegante e profondamente autentica.
+            </p>
+            <div class="mini-facts">
+              <span>💭 Introspezione</span>
+              <span>🎧 Silenzio elegante</span>
+              <span>🌙 Mente riflessiva</span>
+            </div>
+            <a href="miku.html" class="cta primary">Scopri Miku</a>
+          </div>
+          <div class="spotlight-card">
+            <img src="MIkuNakano.png" alt="Miku Nakano" class="spotlight-image" />
           </div>
         </div>
       </section>
@@ -101,9 +124,17 @@
 
       <section class="section" id="sorelle" data-animate>
         <h2>👭 Le cinque sorelle</h2>
+
+        <div class="gallery-filters" aria-label="Filtra le sorelle">
+          <button class="filter-btn is-active" type="button" data-filter="all">Tutte</button>
+          <button class="filter-btn" type="button" data-filter="gentle">Dolci</button>
+          <button class="filter-btn" type="button" data-filter="strong">Forti</button>
+          <button class="filter-btn" type="button" data-filter="sunny">Solari</button>
+        </div>
+
         <div class="characters-gallery">
-          <div class="character-card" data-character="ichika" style="--accent: #ff6b9d">
-            <div class="character-image" style="background: linear-gradient(135deg, #ff6b9d, #f4a6c1);"></div>
+          <div class="character-card" data-character="ichika" data-group="gentle" style="--accent: #ff6b9d">
+            <img class="character-image" src="IchikaNakano.png" alt="Ichika Nakano" />
             <div class="character-info">
               <h3>Ichika Nakano</h3>
               <p class="role">La Maggiore</p>
@@ -112,8 +143,8 @@
               <a href="ichika.html" class="char-link">Scopri di più →</a>
             </div>
           </div>
-          <div class="character-card" data-character="nino" style="--accent: #ff6b6b">
-            <div class="character-image" style="background: linear-gradient(135deg, #ff6b6b, #ff9a9a);"></div>
+          <div class="character-card" data-character="nino" data-group="strong" style="--accent: #ff6b6b">
+            <img class="character-image" src="NinoNakano.png" alt="Nino Nakano" />
             <div class="character-info">
               <h3>Nino Nakano</h3>
               <p class="role">La Protettrice</p>
@@ -122,8 +153,8 @@
               <a href="nino.html" class="char-link">Scopri di più →</a>
             </div>
           </div>
-          <div class="character-card" data-character="miku" style="--accent: #8e7dff">
-            <div class="character-image" style="background: linear-gradient(135deg, #8e7dff, #b5a8ff);"></div>
+          <div class="character-card" data-character="miku" data-group="gentle" style="--accent: #8e7dff">
+            <img class="character-image" src="MIkuNakano.png" alt="Miku Nakano" />
             <div class="character-info">
               <h3>Miku Nakano</h3>
               <p class="role">La Studiosa</p>
@@ -132,8 +163,8 @@
               <a href="miku.html" class="char-link">Scopri di più →</a>
             </div>
           </div>
-          <div class="character-card" data-character="yotsuba" style="--accent: #ffc857">
-            <div class="character-image" style="background: linear-gradient(135deg, #ffc857, #ffd580);"></div>
+          <div class="character-card" data-character="yotsuba" data-group="sunny" style="--accent: #ffc857">
+            <img class="character-image" src="YotsubaNakano.png" alt="Yotsuba Nakano" />
             <div class="character-info">
               <h3>Yotsuba Nakano</h3>
               <p class="role">La Solare</p>
@@ -142,8 +173,8 @@
               <a href="yotsuba.html" class="char-link">Scopri di più →</a>
             </div>
           </div>
-          <div class="character-card" data-character="itsuki" style="--accent: #7ef29a">
-            <div class="character-image" style="background: linear-gradient(135deg, #7ef29a, #a4f7b1);"></div>
+          <div class="character-card" data-character="itsuki" data-group="strong" style="--accent: #7ef29a">
+            <img class="character-image" src="ItsukiNakano.png" alt="Itsuki Nakano" />
             <div class="character-info">
               <h3>Itsuki Nakano</h3>
               <p class="role">La Seria</p>
@@ -189,6 +220,65 @@
         </div>
       </section>
 
+      <section class="section fan-section" id="fan-favorites" data-animate>
+        <h2>✨ Fan Favorites</h2>
+        <div class="fan-grid">
+          <article class="fan-card featured">
+            <span class="fan-label">Momento iconico</span>
+            <h3>“Ogni sorella ha la sua luce.”</h3>
+            <p>La vera magia del sito è la varietà di personalità: da Miku riservata a Yotsuba solare, da Ichika elegante a Nino protettiva, fino a Itsuki seria e determinata.</p>
+          </article>
+
+          <article class="mini-card">
+            <span class="fan-label">Scene preferite</span>
+            <h3>Il primo sorriso</h3>
+            <p>Un attimo che cambia tutto e fa scoprire la vera energia del gruppo.</p>
+          </article>
+
+          <article class="mini-card">
+            <span class="fan-label">Atmosfera</span>
+            <h3>Anime dark luxury</h3>
+            <p>L’estetica scura e morbida rende ogni pagina più elegante e cinematografica.</p>
+          </article>
+        </div>
+
+        <div class="quote-strip">
+          <div class="quote-pill">“La famiglia è il vero equilibrio.”</div>
+          <div class="quote-pill">“Ogni momento conta.”</div>
+          <div class="quote-pill">“L’amore cresce piano.”</div>
+        </div>
+      </section>
+
+      <section class="section community-section" id="community" data-animate>
+        <h2>📝 Post-it della community</h2>
+
+        <div class="comment-layout">
+          <form id="postit-form" class="postit-form">
+            <label>
+              Nome o username
+              <input id="postit-name" name="name" type="text" maxlength="30" placeholder="Es. MikuFan99" required />
+            </label>
+
+            <label>
+              Colore del post-it
+              <input id="postit-color" name="color" type="color" value="#ffd166" aria-label="Scegli il colore del post-it" />
+            </label>
+
+            <label>
+              Messaggio
+              <textarea id="postit-message" name="message" rows="4" maxlength="220" placeholder="Scrivi un pensiero sulle ragazze o sul sito..." required></textarea>
+            </label>
+
+            <button type="submit">Lascia il tuo post-it</button>
+          </form>
+
+          <div class="postit-sidebar">
+            <button id="clear-postits" class="clear-postits" type="button">Cancella tutti</button>
+            <div id="postit-list" class="postit-list" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="hidden" data-animate>
         <div class="hidden-feature-box">
           <span class="hidden-badge">🔒 Secret Mode Attivo</span>
@@ -198,8 +288,31 @@
       </section>
     </main>
 
-    <footer>
-      The Quintessential Quintuplets • Sito dedicato alle cinque sorelle Nakano
+    <footer class="footer-section">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>The Quintessential Quintuplets</h4>
+          <p>Un sito dedicato alle cinque sorelle Nakano e la loro straordinaria storia d'amore e crescita.</p>
+        </div>
+        <div class="footer-col">
+          <h4>🎨 Temi</h4>
+          <p>Noir • Luxe • Rose</p>
+          <p><small>Usa i pulsanti in alto per cambiare tema</small></p>
+        </div>
+        <div class="footer-col">
+          <h4>🔐 Segreti</h4>
+          <p>Premi <kbd>↑↑↓↓←→←→BA</kbd> (Konami)</p>
+          <p><small>O premi <kbd>H</kbd> • <kbd>S</kbd> • <kbd>C</kbd></small></p>
+        </div>
+        <div class="footer-col">
+          <h4>✨ Scopri</h4>
+          <p>5 click su elementi diversi attiva il secret mode</p>
+          <p><small>Prova i tasti per funzioni nascoste</small></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 • Anime fan site • Made with ❤ premium design</p>
+      </div>
     </footer>
   </body>
 </html>

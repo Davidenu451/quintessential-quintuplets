@@ -1,26 +1,28 @@
-const revealItems = document.querySelectorAll('[data-animate]');
-const extraAnimatedElements = document.querySelectorAll('.profile, .story, .card, .hero-card, .section');
+const updateScrollProgress = () => {
+  const scrollProgress = document.getElementById('scroll-progress');
+  if (!scrollProgress) return;
+  
+  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = window.scrollY;
+  const progress = scrollHeight > 0 ? (scrolled / scrollHeight) * 100 : 0;
+  scrollProgress.style.width = `${progress}%`;
+};
 
-extraAnimatedElements.forEach((element) => {
-  if (!element.hasAttribute('data-animate')) {
-    element.setAttribute('data-animate', 'true');
-  }
-});
+window.addEventListener('scroll', updateScrollProgress, { passive: true });
 
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.16 }
-);
+const staggerAnimation = () => {
+  const cards = document.querySelectorAll('.card');
+  cards.forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.1}s`;
+  });
 
-const allRevealItems = document.querySelectorAll('[data-animate]');
-allRevealItems.forEach((item) => revealObserver.observe(item));
+  const charCards = document.querySelectorAll('.character-card');
+  charCards.forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.15}s`;
+  });
+};
+
+staggerAnimation();
 
 const heroCard = document.querySelector('.hero-card');
 if (heroCard) {
@@ -130,7 +132,8 @@ themeButtons.forEach((button) => {
 });
 
 if (bgMusic && audioToggle) {
-  bgMusic.volume = 0.35;
+  bgMusic.volume = 0.75;
+  
   const updateToggle = () => {
     const playing = !bgMusic.paused;
     audioToggle.classList.toggle('is-on', playing);
@@ -141,46 +144,50 @@ if (bgMusic && audioToggle) {
   audioToggle.addEventListener('click', async () => {
     try {
       if (bgMusic.paused) {
-        await bgMusic.play();
+        const playPromise = bgMusic.play();
+        if (playPromise !== undefined) {
+          await playPromise;
+        }
       } else {
         bgMusic.pause();
       }
       updateToggle();
     } catch (error) {
-      console.warn('Audio non avviato:', error);
+      console.warn('Audio error:', error);
     }
   });
 
   bgMusic.addEventListener('play', updateToggle);
   bgMusic.addEventListener('pause', updateToggle);
-
-  bgMusic.play().catch(() => {
-    updateToggle();
+  bgMusic.addEventListener('loadeddata', () => {
+    console.log('Audio loaded successfully');
   });
-}
+  bgMusic.addEventListener('error', (e) => {
+    console.error('Audio load error:', e);
+  });
 
-const introScene = document.getElementById('intro-scene');
-const introVideo = document.getElementById('intro-video');
-
-if (introScene && introVideo) {
-  const hideIntro = () => {
-    introScene.classList.add('is-hidden');
-    window.setTimeout(() => introScene.remove(), 800);
+  // Tentativo di autoplay con fallback
+  const autoplayAudio = () => {
+    const playPromise = bgMusic.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(error => {
+        console.warn('Autoplay failed (browser policy):', error);
+        // Mostri che è paused e aspetti click utente
+        updateToggle();
+      });
+    }
   };
 
-  introVideo.addEventListener('ended', hideIntro, { once: true });
-  introVideo.addEventListener('error', hideIntro, { once: true });
-
-  introVideo.play().catch(() => {
-    hideIntro();
-  });
-
-  window.setTimeout(() => {
-    if (!introVideo.ended) {
-      hideIntro();
-    }
-  }, 12000);
+  // Prova autoplay subito
+  autoplayAudio();
+  
+  // Se l'audio non è ancora caricato, prova quando è pronto
+  if (bgMusic.readyState < 2) {
+    bgMusic.addEventListener('canplay', autoplayAudio, { once: true });
+  }
 }
+
+
 
 const secretParticles = document.createElement('div');
 secretParticles.className = 'secret-particles';
@@ -193,6 +200,19 @@ characterCards.forEach(card => {
   });
   card.addEventListener('mouseleave', () => {
     card.style.zIndex = 'auto';
+  });
+});
+
+const filterButtons = document.querySelectorAll('.filter-btn');
+filterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const selected = button.dataset.filter || 'all';
+
+    filterButtons.forEach((btn) => btn.classList.toggle('is-active', btn === button));
+    characterCards.forEach((card) => {
+      const matches = selected === 'all' || card.dataset.group === selected;
+      card.classList.toggle('is-hidden', !matches);
+    });
   });
 });
 
@@ -277,6 +297,93 @@ setInterval(() => {
   }
 }, 250);
 
+const postitForm = document.getElementById('postit-form');
+const postitList = document.getElementById('postit-list');
+const postitNameInput = document.getElementById('postit-name');
+const postitMessageInput = document.getElementById('postit-message');
+const postitColorInput = document.getElementById('postit-color');
+const clearPostitsButton = document.getElementById('clear-postits');
+const postitKey = 'quintuplets-postits';
+
+const loadPostits = () => {
+  try {
+    const saved = JSON.parse(localStorage.getItem(postitKey) || '[]');
+    return Array.isArray(saved) ? saved : [];
+  } catch {
+    return [];
+  }
+};
+
+const savePostits = (items) => {
+  localStorage.setItem(postitKey, JSON.stringify(items.slice(0, 12)));
+};
+
+const renderPostits = () => {
+  if (!postitList) return;
+
+  const items = loadPostits();
+
+  if (!items.length) {
+    postitList.innerHTML = '<div class="empty-postits">Ancora nessun post-it. Scrivi il primo messaggio!</div>';
+    return;
+  }
+
+  postitList.innerHTML = items.map((item, index) => `
+    <article class="postit-item" style="background: linear-gradient(135deg, ${item.color || '#ffd166'}cc, rgba(255,255,255,0.05));">
+      <div class="postit-user">
+        <span>${item.name}</span>
+        <button class="delete-postit" data-index="${index}" type="button" aria-label="Elimina il post-it di ${item.name}">×</button>
+      </div>
+      <p class="postit-text">${item.text}</p>
+    </article>
+  `).join('');
+
+  document.querySelectorAll('.delete-postit').forEach((button) => {
+    button.addEventListener('click', () => {
+      const items = loadPostits();
+      const index = Number(button.dataset.index);
+      items.splice(index, 1);
+      savePostits(items);
+      renderPostits();
+    });
+  });
+};
+
+if (postitForm && postitList && postitNameInput && postitMessageInput && postitColorInput) {
+  renderPostits();
+
+  postitForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const name = postitNameInput.value.trim();
+    const message = postitMessageInput.value.trim();
+    const color = postitColorInput.value || '#ffd166';
+
+    if (!name || !message) return;
+
+    const items = loadPostits();
+    items.unshift({
+      name,
+      text: message,
+      color,
+      createdAt: new Date().toISOString()
+    });
+
+    savePostits(items);
+    renderPostits();
+    postitForm.reset();
+    postitColorInput.value = '#ffd166';
+    postitNameInput.focus();
+  });
+}
+
+if (clearPostitsButton) {
+  clearPostitsButton.addEventListener('click', () => {
+    localStorage.removeItem(postitKey);
+    renderPostits();
+  });
+}
+
 const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 let konamiIndex = 0;
 
@@ -322,4 +429,51 @@ document.addEventListener('keydown', (event) => {
     triggerSecretGlow(window.innerWidth / 2, window.innerHeight / 2);
   }
 });
+
+const addGlowEffectToCards = () => {
+  const allCards = document.querySelectorAll('.card, .character-card, .mini-card');
+  allCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const xPercent = (x / rect.width) * 100;
+      const yPercent = (y / rect.height) * 100;
+      card.style.setProperty('--gx', `${xPercent}%`);
+      card.style.setProperty('--gy', `${yPercent}%`);
+    });
+  });
+};
+
+addGlowEffectToCards();
+
+const introScene = document.getElementById('intro-scene');
+const introVideo = document.getElementById('intro-video');
+
+if (introScene && introVideo) {
+  const hideIntro = () => {
+    introScene.classList.add('is-hidden');
+    introVideo.pause();
+    window.setTimeout(() => {
+      if (introScene.parentNode) {
+        introScene.remove();
+      }
+    }, 800);
+  };
+
+  introVideo.addEventListener('ended', hideIntro, { once: true });
+  introVideo.addEventListener('error', hideIntro, { once: true });
+
+  introVideo.play().catch((err) => {
+    console.warn('Video autoplay failed:', err);
+    hideIntro();
+  });
+
+  // Timeout 8 secondi per sicurezza
+  window.setTimeout(() => {
+    if (introScene && introScene.parentNode && !introVideo.ended) {
+      hideIntro();
+    }
+  }, 8000);
+}
 
