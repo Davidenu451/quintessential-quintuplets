@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Quintessential Quintuplets</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body class="page-home theme-noir">
+    <audio id="bg-music" autoplay loop preload="auto" volume="0.35">
+      <source src="The%20Quintessential%20Quintuplets%20Opening%20_%20Gotoubun%20no%20Kimochi.mp3" type="audio/mpeg" />
+    </audio>
+    <button id="audio-toggle" class="audio-toggle is-on" type="button" aria-label="Metti in pausa la musica">♫</button>
+
+    <div id="intro-scene" class="intro-scene" aria-live="polite">
+      <video id="intro-video" class="intro-video" autoplay muted playsinline preload="auto">
+        <source src="assets/sora-intro.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <header>
+      <div class="container topbar">
+        <button class="brand" type="button" aria-label="Apri il logo di The Quintessential Quintuplets">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>The Quintessential Quintuplets</span>
+        </button>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="miku.html">Miku</a>
+          <a href="ichika.html">Ichika</a>
+          <a href="nino.html">Nino</a>
+          <a href="yotsuba.html">Yotsuba</a>
+          <a href="itsuki.html">Itsuki</a>
+          <a href="dopo-futaro.html">Dopo Futaro</a>
+          <a href="storia.html">Storia</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page-home">
+      <div class="theme-switcher" data-animate>
+        <button class="theme-button is-active" type="button" data-theme="theme-noir">Noir</button>
+        <button class="theme-button" type="button" data-theme="theme-luxe">Luxe</button>
+        <button class="theme-button" type="button" data-theme="theme-rose">Rose</button>
+      </div>
+      <section class="hero" id="home">
+        <div class="hero-card" data-animate>
+          <div class="cover-bg"></div>
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <span class="eyebrow">Anime • Commedia • Romanzo</span>
+            <h1>The Quintessential Quintuplets</h1>
+            <p>
+              Una storia di crescita, legami familiari e sfide quotidiane, raccontata attraverso
+              cinque personalità uniche che trasformano ogni momento in un’esperienza speciale.
+            </p>
+            <div class="hero-buttons">
+              <a href="storia.html" class="cta primary">Scopri la storia</a>
+              <a href="miku.html" class="cta secondary">Le sorelle</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="presentazione" data-animate>
+        <h2>🏠 Home</h2>
+        <div class="grid">
+          <article class="card">
+            <div class="badge blue">01</div>
+            <h3>Presentazione</h3>
+            <p>L'anime racconta la vita del protagonista e il rapporto con le cinque sorelle Nakano, in una storia fatta di crescita, coccole e momenti divertenti.</p>
+          </article>
+          <article class="card">
+            <div class="badge red">02</div>
+            <h3>Miku Nakano</h3>
+            <p>Riservata, appassionata di storia e molto riflessiva, con un carattere tranquillo ma profondo.</p>
+          </article>
+          <article class="card">
+            <div class="badge green">03</div>
+            <h3>Ichika Nakano</h3>
+            <p>La sorella maggiore, elegante, naturale e sempre in grado di lasciare un'impressione forte.</p>
+          </article>
+          <article class="card">
+            <div class="badge yellow">04</div>
+            <h3>Nino Nakano</h3>
+            <p>Determinata e protettiva, ha un carattere forte e un lato affettuoso che emerge sempre.</p>
+          </article>
+          <article class="card">
+            <div class="badge purple">05</div>
+            <h3>Yotsuba Nakano</h3>
+            <p>Luminosissima, energica e spontanea, porta sempre allegria e calore in ogni situazione.</p>
+          </article>
+          <article class="card">
+            <div class="badge pink">06</div>
+            <h3>Itsuki Nakano</h3>
+            <p>Seria, precisa e ben organizzata, con una forza interiore solida e determinata.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="sorelle" data-animate>
+        <h2>👭 Le cinque sorelle</h2>
+        <div class="characters-gallery">
+          <div class="character-card" data-character="ichika" style="--accent: #ff6b9d">
+            <div class="character-image" style="background: linear-gradient(135deg, #ff6b9d, #f4a6c1);"></div>
+            <div class="character-info">
+              <h3>Ichika Nakano</h3>
+              <p class="role">La Maggiore</p>
+              <p class="bio">Elegante, sicura e naturale. La sorella che tutti cercano.</p>
+              <p class="quote">"Fidati di me."</p>
+              <a href="ichika.html" class="char-link">Scopri di più →</a>
+            </div>
+          </div>
+          <div class="character-card" data-character="nino" style="--accent: #ff6b6b">
+            <div class="character-image" style="background: linear-gradient(135deg, #ff6b6b, #ff9a9a);"></div>
+            <div class="character-info">
+              <h3>Nino Nakano</h3>
+              <p class="role">La Protettrice</p>
+              <p class="bio">Decisa, protettiva e sempre pronta a guidare.</p>
+              <p class="quote">"Ti proteggerò."</p>
+              <a href="nino.html" class="char-link">Scopri di più →</a>
+            </div>
+          </div>
+          <div class="character-card" data-character="miku" style="--accent: #8e7dff">
+            <div class="character-image" style="background: linear-gradient(135deg, #8e7dff, #b5a8ff);"></div>
+            <div class="character-info">
+              <h3>Miku Nakano</h3>
+              <p class="role">La Studiosa</p>
+              <p class="bio">Riservata ma profondamente sensibile e interessante.</p>
+              <p class="quote">"Penso a tutto."</p>
+              <a href="miku.html" class="char-link">Scopri di più →</a>
+            </div>
+          </div>
+          <div class="character-card" data-character="yotsuba" style="--accent: #ffc857">
+            <div class="character-image" style="background: linear-gradient(135deg, #ffc857, #ffd580);"></div>
+            <div class="character-info">
+              <h3>Yotsuba Nakano</h3>
+              <p class="role">La Solare</p>
+              <p class="bio">Energica e piena di vita, porta allegria dovunque.</p>
+              <p class="quote">"Facciamo di tutto!"</p>
+              <a href="yotsuba.html" class="char-link">Scopri di più →</a>
+            </div>
+          </div>
+          <div class="character-card" data-character="itsuki" style="--accent: #7ef29a">
+            <div class="character-image" style="background: linear-gradient(135deg, #7ef29a, #a4f7b1);"></div>
+            <div class="character-info">
+              <h3>Itsuki Nakano</h3>
+              <p class="role">La Seria</p>
+              <p class="bio">Determinata e studiosa, con forte senso del dovere.</p>
+              <p class="quote">"Non mi arrendo."</p>
+              <a href="itsuki.html" class="char-link">Scopri di più →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section timeline-section" id="timeline" data-animate>
+        <h2>📖 La Storia</h2>
+        <div class="story-timeline">
+          <div class="timeline-item" style="--order: 1;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h4>Incontro</h4>
+              <p>Tutto inizia quando Futaro conosce le cinque sorelle Nakano e diventa il loro insegnante particolare.</p>
+            </div>
+          </div>
+          <div class="timeline-item" style="--order: 2;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h4>Legami</h4>
+              <p>Man mano che il tempo passa, si creano legami sempre più forti e momenti indimenticabili.</p>
+            </div>
+          </div>
+          <div class="timeline-item" style="--order: 3;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h4>Sfide</h4>
+              <p>Ogni sorella affronta le proprie sfide personali, supportate da Futaro e dalle altre.</p>
+            </div>
+          </div>
+          <div class="timeline-item" style="--order: 4;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h4>Destino</h4>
+              <p>La storia si conclude con scelte difficili e un finale che cambierà tutto.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="hidden" data-animate>
+        <div class="hidden-feature-box">
+          <span class="hidden-badge">🔒 Secret Mode Attivo</span>
+          <h3>Hai scoperto l'easter egg!</h3>
+          <p>Questo sito contiene hidden features. Continua a cercare...</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      The Quintessential Quintuplets • Sito dedicato alle cinque sorelle Nakano
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+﻿Prompt per generazione video AI
+
+Genera un video cinematografico di apertura di 8–12 secondi, in stile anime premium, realistico e ultra raffinato, full screen, con Miku Nakano seduta davanti a un computer moderno, circondata dalle altre quattro gemelle in modo elegante e armonico, in una stanza minimalista ma molto premium.
+
+Tema: The Quintessential Quintuplets, con Miku Nakano come protagonista, resa il più possibile fedele allo stile dell’anime, con capelli scuri, occhi grandi e espressivi, volto delicato ma definito, abbigliamento da scuola elegante, atmosfera soft ma premium. Le altre quattro gemelle sono accanto a lei, in primo piano sul lato, con pose naturali e caratteristiche distintive, come in una scena da anime premium, senza essere sovraccariche o caotiche. Miku è in primo piano al computer, mentre le altre quattro gemelle si trovano dietro o accanto a lei, creando una composizione dinamica e bella.
+
+Scena:
+- Camera frontale ravvicinata, in primo piano, con prospettiva da film, molto elegante e cinematografica.
+- Miku Nakano seduta davanti al computer, con postura naturale, calma e femminile, come in una scena d’apertura di anime premium.
+- Le altre quattro gemelle sono visibili accanto a lei, a destra o dietro, in pose leggere e naturali, in una composizione da gruppo elegante, senza distogliere troppo l’attenzione dal monitor.
+- Bambola di luce: ambiente dark luxury con sfumature di blu scuro, nero, grigio, rosa tenue e illuminazione morbida sul monitor.
+- Miku guarda il monitor con naturalezza, il suo sguardo è vivace e diretto verso lo schermo, senza rigidità.
+- Il suo volto è dettagliato, realistico e molto fedele allo stile dell’anime: occhi grandi, espressione morbida, capelli ben definiti, pelle liscia e naturale.
+- Le altre quattro gemelle hanno il loro stile visivo riconoscibile, capelli e caratteristiche distintive, in una composizione equilibrata e ricca.
+- La telecamera inizia larga e poi fa un dolce zoom molto cinematico verso il monitor, fino a concentrarsi sullo schermo del computer.
+- Il monitor è gigantesco, occupa gran parte dello schermo, con lo sfondo dei siti premium The Quintessential Quintuplets in una pagina elegante e moderna.
+- Sul browser appare il sito in primo piano con interfaccia dark luxury, layout raffinato, elementi minimalisti, barra di ricerca, pulsanti e login molto dettagliati.
+- Si vede il login con password scritta lentamente e realisticamente, digitazione naturale, cursore lampeggiante e pannello di accesso dettagliato.
+- La scena mostra Miku che si siede, accende il computer, apre il browser e digita il sito, mentre le altre gemelle sono accanto a lei come supporto visivo nella scena, e il sito entra completamente in primo piano sul monitor.
+- La vista finale è il browser grande e chiaro sul monitor, con la pagina del sito dentro la finestra, come un teaser di apertura da anime premium con il gruppo delle quintuplets in scena.
+- Il movimento della telecamera è molto elegante: un gentle zoom-in, lentezza cinematografica, profondità di campo, luminosità calda sul monitor e sfondo scuro premium.
+
+Stile visivo:
+- Anime premium, realistico, molto cinematografico.
+- Full screen, lucido, elegante, sofisticato.
+- Atmosfera da teaser di lancio sito web / brand anime.
+- Qualità alta, dettagli molto curati, volto e capelli molto fedeli allo stile dei personaggi.
+- Nessun effetto cartoon, nessun look cheap, nessuna scena stilizzata e artificiale.
+- Realismo fotografico con tocco anime premium.
+
+Movimento:
+- Camera leggermente in movimento, slow dolly/zoom in verso il monitor.
+- Miku e le altre gemelle sono naturali, con piccoli movimenti facciali soavi e sguardi verso il monitor.
+- Password inserita lentamente con digitazione credibile e cursore lampeggiante.
+- Passaggio elegante dalla figura di Miku e del gruppo alle altre gemelle al monitor, con la pagina del sito che si apre in modo premium.
+
+Dettagli richiesti:
+- 8–12 secondi
+- Alta qualità cinematografica
+- Full screen
+- Miku in primo piano con le altre quattro gemelle accanto a lei
+- Browser enorme in primo piano
+- Login dettagliato e realistico
+- Password scritta lentamente e naturalmente
+- Colore dark luxury con blu scuro e nero
+- Luce calda sul monitor
+- Zoom-in dolce e premium
+- Miku Nakano e le gemelle molto fedeli allo stile dell’anime, espressive, eleganti e precise
+
+Negative prompt:
+- low quality, blurry, flat lighting, cartoonish face, oversaturated colors, distorted hands, bad anatomy, noisy background, cheap UI, static composition, awkward pose, stiff expression, watermark, text artifacts, overexposed monitor, unrealistic browser, exaggerated animation, low detail, cropped face, bad camera framing.
+
+Output desiderato:
+Un teaser AI premium, realistico e cinematografico, con Miku Nakano seduta davanti a un computer moderno e fedele allo stile dell’anime, circondata dalle altre quattro gemelle, mentre guarda il monitor e si collega al PC. La scena mostra il gruppo delle quintuplets in composizione elegante, poi apre il browser, digita il sito The Quintessential Quintuplets ed entra nella pagina principale del sito. Il focus si sposta lentamente verso lo schermo, con il browser enorme in primo piano, il login dettagliato e la password scritta in modo naturale, fino a mostrare il sito completamente aperto dentro il monitor, come un’introduzione da film d’apertura di un brand anime premium.
